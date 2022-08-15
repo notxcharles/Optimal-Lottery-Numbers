@@ -54,17 +54,16 @@ for year in range(2004, current_year + 1):
     for result in results:
         if results[0] == result:
             continue
-        print("rresult")
         date = result.find(class_="smallerHeading").string
         balls = result.find_all(class_="euromillions-ball")
         regular_balls = [int(ball.string) for ball in balls]
         balls = result.find_all(class_="euromillions-lucky-star")
         special_balls = [int(ball.string) for ball in balls]
         try:
-            jackpot = result.find("strong").string
+            jackpot = result.find("strong").string.replace("£", "")
+            jackpot = jackpot.replace(",", "")
         except AttributeError:
             jackpot = None
-        print(date, regular_balls, special_balls, jackpot)
 
         resultsToWrite = []
         resultsToWrite.append(date)
@@ -73,11 +72,7 @@ for year in range(2004, current_year + 1):
             resultsToWrite.append(ball)
         for ball in special_balls:
             resultsToWrite.append(ball)
-        try:
-            resultsToWrite.append(jackpot.replace("£", ""))
-        except AttributeError:
-            resultsToWrite.append(jackpot)
+        resultsToWrite.append(jackpot)
 
-        print("resukts:::", resultsToWrite)
-
+        # print(date, regular_balls, special_balls, jackpot)
         writeToCSV("EuroMillions", resultsToWrite)

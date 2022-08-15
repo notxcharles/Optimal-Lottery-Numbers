@@ -1,9 +1,13 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+import os
 
-df = pd.read_csv("./EuroMillions_results.csv", delimiter="|", header=0)
-
+df = pd.read_csv(
+    os.path.join(os.path.dirname(__file__), "../EuroMillions_results.csv"),
+    delimiter="|",
+    header=0,
+)
 # Lets find the frequency of regular balls
 
 balls = [x for x in df["Ball 1"]]
