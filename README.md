@@ -5,8 +5,8 @@
  
  Current, the best roll would be 23,19,50,38 and 44 with the lucky star numbers 2 and 3
 
+## To do:
 
-
-To do:
     How do the rolled numbers compare to a Normal Distribution?
-    What are the most valueble numbers?
+    
+    What are the most valuable numbers?
